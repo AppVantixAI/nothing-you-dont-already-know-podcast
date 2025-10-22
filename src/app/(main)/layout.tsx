@@ -99,7 +99,7 @@ export default function MainLayout({
           </Link>
           <div className="mt-10 text-center lg:mt-12 lg:text-left">
             <p className="text-xl font-bold text-slate-900">
-              <Link href="/">Nothing You Don't Already Know</Link>
+              <Link href="/">Nothing You Don&apos;t Already Know</Link>
             </p>
             <p className="mt-3 text-lg/8 font-medium text-slate-700">
               A short, daily podcast exploring philosophy, stoic ideas, minimalist living, and ways to increase contentment and fulfillment.
