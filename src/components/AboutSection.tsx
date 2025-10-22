@@ -23,11 +23,7 @@ export function AboutSection(props: React.ComponentPropsWithoutRef<'section'>) {
           !isExpanded && 'lg:line-clamp-4',
         )}
       >
-        In this show, Eric and Wes dig deep to get to the facts with guests who
-        have been labeled villains by a society quick to judge, without actually
-        getting the full story. Tune in every Thursday to get to the truth with
-        another misunderstood outcast as they share the missing context in their
-        tragic tale.
+        A short, daily podcast exploring the psychology of human contentment and the art of finding fulfillment in what already exists. Each episode examines how our brains naturally "group" experiences and possessions, leading to diminishing appreciation over time. Through mindful reflection and practical wisdom, we explore why both success and material gain often fail to sustain happiness, and how to reconnect with gratitude for the value that already surrounds us.
       </p>
       {!isExpanded && (
         <button
