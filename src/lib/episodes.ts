@@ -34,7 +34,7 @@ export async function getAllEpisodes() {
     })
 
         let feed = (await parseFeed(
-          'https://transmit-51gv8q6t3-app-vantix.vercel.app/api/feed.xml',
+          'https://transmit-2ftr2uhms-app-vantix.vercel.app/api/feed.xml',
         )) as unknown
     let items = parse(FeedSchema, feed).items
 
