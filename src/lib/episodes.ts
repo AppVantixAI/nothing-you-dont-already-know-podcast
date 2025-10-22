@@ -14,42 +14,48 @@ export interface Episode {
 }
 
 export async function getAllEpisodes() {
-  let FeedSchema = object({
-    items: array(
-      object({
-        id: string(),
-        title: string(),
-        published: number(),
-        description: string(),
-        content: string(),
-        enclosures: array(
-          object({
-            url: string(),
-            type: string(),
-          }),
-        ),
+  try {
+    let FeedSchema = object({
+      items: array(
+        object({
+          id: string(),
+          title: string(),
+          published: number(),
+          description: string(),
+          content: string(),
+          enclosures: array(
+            object({
+              url: string(),
+              type: string(),
+            }),
+          ),
+        }),
+      ),
+    })
+
+    let feed = (await parseFeed(
+      'https://nothingyoudontalreadyknow.com/feed.xml',
+    )) as unknown
+    let items = parse(FeedSchema, feed).items
+
+    let episodes: Array<Episode> = items.map(
+      ({ id, title, description, content, enclosures, published }, index) => ({
+        id: id || `episode-${index}`,
+        title: title,
+        published: new Date(published),
+        description,
+        content,
+        audio: enclosures.map((enclosure) => ({
+          src: enclosure.url,
+          type: enclosure.type,
+        }))[0],
       }),
-    ),
-  })
+    )
 
-  let feed = (await parseFeed(
-    'https://nothingyoudontalreadyknow.com/feed.xml',
-  )) as unknown
-  let items = parse(FeedSchema, feed).items
-
-  let episodes: Array<Episode> = items.map(
-    ({ id, title, description, content, enclosures, published }, index) => ({
-      id: id || `episode-${index}`,
-      title: title,
-      published: new Date(published),
-      description,
-      content,
-      audio: enclosures.map((enclosure) => ({
-        src: enclosure.url,
-        type: enclosure.type,
-      }))[0],
-    }),
-  )
-
-  return episodes
+    return episodes
+  } catch (error) {
+    console.error('Error fetching episodes:', error)
+    // Return empty array as fallback
+    return []
+  }
 }
