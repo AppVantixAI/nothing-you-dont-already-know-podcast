@@ -23,7 +23,7 @@ export function AboutSection(props: React.ComponentPropsWithoutRef<'section'>) {
           !isExpanded && 'lg:line-clamp-4',
         )}
       >
-        A short, daily podcast exploring the psychology of human contentment and the art of finding fulfillment in what already exists. Each episode examines how our brains naturally "group" experiences and possessions, leading to diminishing appreciation over time. Through mindful reflection and practical wisdom, we explore why both success and material gain often fail to sustain happiness, and how to reconnect with gratitude for the value that already surrounds us.
+        A short, daily podcast exploring the psychology of human contentment and the art of finding fulfillment in what already exists. Each episode examines how our brains naturally &ldquo;group&rdquo; experiences and possessions, leading to diminishing appreciation over time. Through mindful reflection and practical wisdom, we explore why both success and material gain often fail to sustain happiness, and how to reconnect with gratitude for the value that already surrounds us.
       </p>
       {!isExpanded && (
         <button
