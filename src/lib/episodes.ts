@@ -33,9 +33,9 @@ export async function getAllEpisodes() {
       ),
     })
 
-    let feed = (await parseFeed(
-      'https://nothingyoudontalreadyknow.com/feed.xml',
-    )) as unknown
+        let feed = (await parseFeed(
+          'https://transmit-51gv8q6t3-app-vantix.vercel.app/api/feed.xml',
+        )) as unknown
     let items = parse(FeedSchema, feed).items
 
     let episodes: Array<Episode> = items.map(
